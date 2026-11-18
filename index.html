@@ -1,0 +1,1579 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f9e9e9">
+<title>One More Time, Zahra Jee ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink:#e99aa9;
+  --deep:#9e526b;
+  --dark:#472b37;
+  --cream:#fff9f5;
+  --light:#fff0f2;
+  --gold:#c49a68;
+  --shadow:0 15px 45px rgba(112,49,72,.12);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse at 10% 10%,#f7dce2 0%,transparent 40%),
+    radial-gradient(ellipse at 90% 80%,#f6d9df 0%,transparent 40%),
+    linear-gradient(145deg,#fff8f3,#fcebf0,#fff8f3);
+  color:var(--dark);
+  font-family:'Quicksand',sans-serif;
+  overflow-x:hidden;
+}
+
+button {
+  font-family:inherit;
+  cursor:pointer;
+  border:0;
+}
+
+button:focus-visible {
+  outline:3px solid var(--deep);
+  outline-offset:4px;
+}
+
+#musicPlayer {
+  position:fixed;
+  width:1px;
+  height:1px;
+  opacity:0;
+  pointer-events:none;
+  top:-10px;
+}
+
+.music-control {
+  position:fixed;
+  z-index:1000;
+  top:18px;
+  right:18px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,.9);
+  border:1px solid #f2cbd4;
+  border-radius:30px;
+  padding:11px 16px;
+  color:var(--deep);
+  box-shadow:var(--shadow);
+  font-weight:700;
+  font-size:12px;
+  backdrop-filter:blur(10px);
+}
+
+.music-control span {
+  font-size:17px;
+}
+
+.progress-wrap {
+  position:fixed;
+  z-index:999;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:#f4dce2;
+}
+
+.progress-bar {
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#d77e98,#b56b84);
+  transition:width .5s ease;
+}
+
+.top-label {
+  position:fixed;
+  top:20px;
+  left:20px;
+  z-index:900;
+  color:#a56b7b;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:700;
+}
+
+.screen {
+  display:none;
+  min-height:100vh;
+  padding:90px 20px 55px;
+  align-items:center;
+  justify-content:center;
+  animation:screenIn .8s ease both;
+}
+
+.screen.active {
+  display:flex;
+}
+
+@keyframes screenIn {
+  from {
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.container {
+  width:min(900px,100%);
+  margin:auto;
+}
+
+.center {
+  text-align:center;
+}
+
+.eyebrow {
+  color:#b67889;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+h1,h2,h3 {
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+}
+
+h1 {
+  font-size:clamp(38px,7vw,75px);
+  line-height:1.15;
+}
+
+h2 {
+  font-size:clamp(30px,5vw,48px);
+  line-height:1.2;
+}
+
+h3 {
+  font-size:24px;
+}
+
+.highlight {
+  color:var(--deep);
+  font-style:italic;
+}
+
+.subtitle {
+  color:#8c6974;
+  font-size:15px;
+  line-height:1.9;
+  max-width:600px;
+  margin:20px auto;
+}
+
+.cover-card {
+  max-width:720px;
+  margin:auto;
+  padding:65px 35px;
+  background:rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:35px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+  position:relative;
+  overflow:hidden;
+}
+
+.cover-card::before,
+.cover-card::after {
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border:1px solid rgba(205,133,153,.25);
+  border-radius:50%;
+}
+
+.cover-card::before {
+  top:-75px;
+  left:-75px;
+}
+
+.cover-card::after {
+  bottom:-75px;
+  right:-75px;
+}
+
+.big-heart {
+  font-size:65px;
+  display:block;
+  margin-bottom:25px;
+  animation:heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% {transform:scale(1)}
+  15% {transform:scale(1.13)}
+  30% {transform:scale(1)}
+  45% {transform:scale(1.08)}
+}
+
+.primary-btn {
+  background:linear-gradient(135deg,#c77991,#a95673);
+  color:white;
+  padding:15px 30px;
+  border-radius:35px;
+  font-weight:700;
+  font-size:14px;
+  box-shadow:0 8px 20px rgba(169,86,115,.25);
+  transition:.3s;
+}
+
+.primary-btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 25px rgba(169,86,115,.35);
+}
+
+.secondary-btn {
+  background:white;
+  color:var(--deep);
+  border:1px solid #edc7d1;
+  padding:14px 27px;
+  border-radius:35px;
+  font-weight:700;
+}
+
+.nav-row {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin-top:35px;
+  flex-wrap:wrap;
+}
+
+.chapter-heading {
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.chapter-number {
+  color:#c78a9b;
+  font-size:12px;
+  letter-spacing:4px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.story-card {
+  background:rgba(255,255,255,.75);
+  border:1px solid #f4dce2;
+  padding:30px;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  margin:18px 0;
+  transition:transform .3s;
+}
+
+.story-card:hover {
+  transform:translateY(-4px);
+}
+
+.story-card p {
+  color:#765965;
+  line-height:2;
+  font-size:14px;
+  margin-top:12px;
+}
+
+.story-card h3 {
+  color:#99566c;
+}
+
+.card-tag {
+  display:inline-block;
+  background:#fff0f3;
+  color:#ad7183;
+  border-radius:20px;
+  padding:7px 12px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:13px;
+}
+
+.memory-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:25px;
+}
+
+.memory-card {
+  background:rgba(255,255,255,.8);
+  border:1px solid #f1d9df;
+  padding:24px;
+  border-radius:20px;
+  min-height:180px;
+  box-shadow:0 8px 25px rgba(112,49,72,.07);
+}
+
+.memory-card .emoji {
+  font-size:27px;
+  margin-bottom:14px;
+}
+
+.memory-card h3 {
+  font-size:20px;
+  color:#99566c;
+}
+
+.memory-card p {
+  color:#806873;
+  line-height:1.9;
+  font-size:13px;
+  margin-top:10px;
+}
+
+.quote-card {
+  max-width:700px;
+  margin:25px auto;
+  padding:35px;
+  text-align:center;
+  background:#fff;
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.quote-card p {
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  line-height:1.8;
+  color:#92566b;
+  font-style:italic;
+}
+
+.divider {
+  width:75px;
+  height:2px;
+  background:#e9b9c5;
+  margin:25px auto;
+}
+
+.compliment {
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+  background:rgba(255,255,255,.8);
+  border:1px solid #f4dce2;
+  padding:20px;
+  border-radius:17px;
+  margin:12px 0;
+  color:#795b67;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.compliment span {
+  font-size:22px;
+}
+
+.letter-paper {
+  max-width:750px;
+  margin:auto;
+  padding:40px;
+  background:#fffdf9;
+  border:1px solid #ead9ce;
+  border-radius:8px;
+  box-shadow:0 15px 45px rgba(90,50,50,.1);
+  position:relative;
+}
+
+.letter-paper::before {
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid #f0e1d8;
+  pointer-events:none;
+}
+
+.letter-text {
+  color:#72545e;
+  line-height:2.1;
+  font-size:14px;
+  white-space:pre-line;
+  position:relative;
+  z-index:1;
+}
+
+.proposal-card {
+  max-width:750px;
+  margin:auto;
+  padding:55px 30px;
+  text-align:center;
+  background:rgba(255,255,255,.85);
+  border:1px solid #f2d5dd;
+  border-radius:30px;
+  box-shadow:var(--shadow);
+}
+
+.proposal-card h2 {
+  margin:15px 0;
+}
+
+.proposal-buttons {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:35px;
+  flex-wrap:wrap;
+}
+
+.yes-btn {
+  background:#a95775;
+  color:white;
+  padding:16px 40px;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:700;
+}
+
+.no-btn {
+  background:#fff;
+  border:1px solid #d9b6c0;
+  color:#936273;
+  padding:16px 40px;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:700;
+}
+
+.toast {
+  position:fixed;
+  z-index:2000;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,120px);
+  background:#754456;
+  color:white;
+  padding:15px 22px;
+  border-radius:30px;
+  font-size:13px;
+  text-align:center;
+  width:max-content;
+  max-width:90%;
+  box-shadow:var(--shadow);
+  transition:.4s;
+}
+
+.toast.show {
+  transform:translate(-50%,0);
+}
+
+#celebration {
+  position:fixed;
+  inset:0;
+  z-index:1500;
+  background:rgba(255,242,245,.96);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  text-align:center;
+}
+
+#celebration.show {
+  display:flex;
+  animation:screenIn .6s ease;
+}
+
+.celebration-inner {
+  max-width:650px;
+}
+
+.celebration-inner h2 {
+  color:#a95775;
+  margin:20px 0;
+}
+
+.celebration-inner p {
+  line-height:2;
+  color:#765965;
+}
+
+.floating-heart {
+  position:fixed;
+  bottom:-40px;
+  z-index:0;
+  pointer-events:none;
+  animation:floatUp linear forwards;
+  opacity:.55;
+}
+
+@keyframes floatUp {
+  to {
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+.footer-note {
+  text-align:center;
+  color:#b17b8b;
+  font-size:11px;
+  margin-top:35px;
+  letter-spacing:1px;
+}
+
+.month-label {
+  display:inline-block;
+  background:#fbe9ee;
+  color:#a9657b;
+  padding:9px 17px;
+  border-radius:25px;
+  letter-spacing:2px;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.timeline {
+  border-left:2px solid #eac3ce;
+  margin:25px 0 25px 12px;
+  padding-left:25px;
+}
+
+.timeline-item {
+  position:relative;
+  margin-bottom:25px;
+}
+
+.timeline-item::before {
+  content:"";
+  position:absolute;
+  left:-33px;
+  top:7px;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:#c77991;
+  border:3px solid #fff;
+  box-shadow:0 0 0 2px #eac3ce;
+}
+
+.timeline-item h3 {
+  color:#99566c;
+  font-size:19px;
+}
+
+.timeline-item p {
+  color:#806873;
+  font-size:13px;
+  line-height:1.9;
+  margin-top:8px;
+}
+
+@media(max-width:650px) {
+  .screen {
+    padding:85px 15px 40px;
+  }
+
+  .cover-card {
+    padding:50px 22px;
+  }
+
+  .memory-grid {
+    grid-template-columns:1fr;
+  }
+
+  .story-card {
+    padding:23px;
+  }
+
+  .letter-paper {
+    padding:28px 22px;
+  }
+
+  .quote-card {
+    padding:25px 20px;
+  }
+
+  .quote-card p {
+    font-size:19px;
+  }
+
+  .top-label {
+    font-size:9px;
+    top:23px;
+  }
+
+  .music-control {
+    top:55px;
+    right:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress-wrap">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div class="top-label">A LITTLE WORLD FOR ZAHRA JEE</div>
+
+<button class="music-control" id="musicButton" onclick="toggleMusic()">
+  <span id="musicIcon">♫</span>
+  <span id="musicText">PLAY MUSIC</span>
+</button>
+
+<div id="musicPlayer"></div>
+
+<!-- SCREEN 1 -->
+<section class="screen active" id="screen0">
+  <div class="container center">
+    <div class="cover-card">
+      <span class="big-heart">💗</span>
+      <div class="eyebrow">A SMALL SURPRISE FOR SOMEONE SPECIAL</div>
+      <h1>One More Time,<br><span class="highlight">Zahra Jee</span></h1>
+      <p class="subtitle">
+        Kuch baatein hoti hain jo ek baar kehne se khatam nahi hoti.
+        Kuch feelings hoti hain jo waqt ke saath aur bhi khoobsurat
+        ho jaati hain.
+      </p>
+      <div class="divider"></div>
+      <p class="subtitle">
+        Aaj main aapko ek choti si journey par le jana chahta hoon.
+        Hamare guzare hue teen mahino ki taraf.
+      </p>
+      <button class="primary-btn" onclick="go(1)">
+        Open Your Surprise ✨
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 2 -->
+<section class="screen" id="screen1">
+  <div class="container">
+    <div class="chapter-heading">
+      <div class="chapter-number">CHAPTER 01 · THE BEGINNING</div>
+      <h2>13 August</h2>
+      <p class="subtitle">Ek tareekh, ek yaad, aur ek khoobsurat ehsaas.</p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">THE FIRST PROPOSAL</span>
+      <h3>Woh din yaad hai?</h3>
+      <p>
+        13 August mere liye sirf calendar ki ek date nahi hai.
+        Is date ke saath ek aisi yaad judi hui hai jo mere liye
+        hamesha special rahegi.
+      </p>
+      <p>
+        Us din maine apne dil ki baat aap tak pohanchayi thi.
+        Shayad us waqt mujhe bhi andaza nahi tha ke aane wale
+        dinon mein kitni saari choti choti baatein yaadein ban jayengi.
+      </p>
+      <p>
+        Kabhi kabhi zindagi mein koi ek moment hota hai jo
+        baad mein bohat saari memories ka starting point ban jata hai.
+        Mere liye woh moment bhi kuch aisa hi tha.
+      </p>
+    </div>
+
+    <div class="quote-card">
+      <p>
+        "Kuch dates calendar par hoti hain,
+        aur kuch dil ki yaadon mein."
+      </p>
+    </div>
+
+    <div class="story-card">
+      <h3>Aaj phir ek nayi baat</h3>
+      <p>
+        Aaj main dobara apni feelings ko lafzon mein likh raha hoon.
+        Is baar sirf ek proposal nahi, balkay un teen mahino ki
+        appreciation bhi hai jo humne saath guzare.
+      </p>
+      <p>
+        Main chahta hoon ke aap is website ko dekhte hue har
+        chapter mein apni koi na koi choti si memory yaad karein.
+        Har baat perfect nahi hoti, lekin kuch log aur kuch moments
+        apni jagah bohat special bana lete hain.
+      </p>
+    </div>
+
+    <div class="nav-row">
+      <button class="secondary-btn" onclick="go(0)">Back</button>
+      <button class="primary-btn" onclick="go(2)">Continue ❤️</button>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 3: THREE MONTHS INTRO -->
+<section class="screen" id="screen2">
+  <div class="container">
+    <div class="chapter-heading">
+      <div class="chapter-number">CHAPTER 02 · OUR LITTLE JOURNEY</div>
+      <h2>Three Months <span class="highlight">Together</span></h2>
+      <p class="subtitle">
+        Teen mahine. Bohat saari baatein. Choti choti khushiyan.
+        Aur aisi memories jinhein main appreciate karna chahta hoon.
+      </p>
+    </div>
+
+    <div class="quote-card">
+      <p>
+        "Waqt kitna guzra, yeh important nahi.
+        Us waqt mein kitni achi yaadein bani,
+        mere liye woh zyada important hai."
+      </p>
+    </div>
+
+    <div class="story-card">
+      <h3>Teen mahine ka matlab</h3>
+      <p>
+        Zahra Jee, teen mahine sunne mein shayad ek chota sa
+        duration lagta ho, lekin jab main is waqt ko yaad karta hoon
+        toh mujhe bohat si choti choti baatein yaad aati hain.
+      </p>
+      <p>
+        Kabhi normal si conversation, kabhi kisi baat par hansi,
+        kabhi aapke nakhray, kabhi aapka mood, kabhi koi random
+        si baat aur kabhi bas ek message ka intezar.
+      </p>
+      <p>
+        Har din koi extraordinary event nahi hota.
+        Lekin ordinary days mein bhi kuch moments aise hote hain
+        jo baad mein yaad aate hain aur chehre par smile le aate hain.
+      </p>
+    </div>
+
+    <div class="memory-grid">
+      <div class="memory-card">
+        <div class="emoji">💬</div>
+        <h3>Conversations</h3>
+        <p>Woh choti choti baatein jo kabhi kabhi poora din achha bana deti hain.</p>
+      </div>
+      <div class="memory-card">
+        <div class="emoji">🌷</div>
+        <h3>Little Moments</h3>
+        <p>Woh normal se moments jo apni jagah ek special memory ban gaye.</p>
+      </div>
+      <div class="memory-card">
+        <div class="emoji">✨</div>
+        <h3>Understanding</h3>
+        <p>Ek doosre ko samajhne aur baat karne ka waqt.</p>
+      </div>
+      <div class="memory-card">
+        <div class="emoji">🤍</div>
+        <h3>Appreciation</h3>
+        <p>Un choti choti cheezon ki qadar jo aksar hum keh nahi paate.</p>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="secondary-btn" onclick="go(1)">Back</button>
+      <button class="primary-btn" onclick="go(3)">Month One 🌸</button>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 4: MONTH ONE -->
+<section class="screen" id="screen3">
+  <div class="container">
+    <div class="chapter-heading">
+      <div class="chapter-number">OUR JOURNEY · PART ONE</div>
+      <div class="month-label">MONTH ONE</div>
+      <h2>The First <span class="highlight">Chapter</span></h2>
+      <p class="subtitle">Shuru ke din, nayi baatein aur ek naya routine.</p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">01 · THE EXCITEMENT</span>
+      <h3>Shuru shuru ki khushi</h3>
+      <p>
+        Zahra Jee, pehla month apni ek alag hi feeling rakhta hai.
+        Har cheez nayi lagti hai. Baat karne ke naye topics,
+        ek doosre ki pasand samajhna, aur choti choti cheezon
+        ko notice karna.
+      </p>
+      <p>
+        Kabhi ek simple sa message bhi din ka achha hissa ban jata hai.
+        Kabhi kisi normal baat par conversation lambi ho jaati hai.
+        Aur kabhi aisa hota hai ke baat khatam hone ke baad bhi
+        woh conversation yaad rehti hai.
+      </p>
+      <p>
+        Mujhe lagta hai ke kisi ko samajhne ka process bhi apni
+        jagah bohat khoobsurat hota hai. Dheere dheere pata chalta
+        hai ke saamne wale ko kya pasand hai, kis baat par hansi
+        aati hai aur kis cheez se mood achha hota hai.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">02 · GETTING TO KNOW YOU</span>
+      <h3>Aapko samajhne ka safar</h3>
+      <p>
+        Pehle month mein sab se achhi baat yeh hoti hai ke
+        aap ek doosre ki personality ko aur achhi tarah jaanne lagte hain.
+        Aapki pasand, aapki soch, aapka baat karne ka andaaz,
+        aur aapki woh choti choti habits jo aapko aap banati hain.
+      </p>
+      <p>
+        Main chahta hoon ke aap hamesha apni asli personality
+        ke saath comfortable rahein. Aapko har waqt perfect banne
+        ki zaroorat nahi. Aapki apni personality hi aapki pehchan hai.
+      </p>
+      <p>
+        Mujhe achha lagta hai jab hum ek doosre se openly baat karte
+        hain, apni baat samjhate hain aur ek doosre ko sunne ki
+        koshish karte hain.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">03 · THE LITTLE THINGS</span>
+      <h3>Choti baatein, bari khushi</h3>
+      <p>
+        Kabhi kisi message ka reply, kabhi koi funny si baat,
+        kabhi kisi topic par lambi discussion.
+        Yeh sab cheezein shayad alag se dekhi jayein toh bohat normal
+        lagti hain, lekin jab in sab ko ek saath yaad karta hoon
+        toh ek pyari si picture ban jaati hai.
+      </p>
+      <p>
+        Main yeh nahi kehta ke har din perfect hona chahiye.
+        Kabhi busy days hote hain, kabhi mood different hota hai,
+        kabhi baat kam hoti hai. Lekin ek doosre ko samajhne ki
+        koshish bohat matter karti hai.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">04 · WHAT I APPRECIATE</span>
+      <h3>Is month se seekhi hui baat</h3>
+      <p>
+        Is month ne mujhe yeh yaad dilaya ke kisi bhi connection
+        ko samajhne ke liye waqt dena zaroori hota hai.
+        Sirf achhi baatein nahi, balkay ek doosre ki different
+        moods aur opinions ko bhi samajhna hota hai.
+      </p>
+      <p>
+        Zahra Jee, main aapki individuality ki qadar karta hoon.
+        Aapki apni soch hai, apni pasand hai, apne dreams hain.
+        Main chahta hoon ke aap hamesha apne goals aur khushiyon
+        ko bhi utni hi importance dein.
+      </p>
+    </div>
+
+    <div class="quote-card">
+      <p>
+        "Har nayi journey ka sab se pyara hissa
+        uska pehla chapter hota hai."
+      </p>
+    </div>
+
+    <div class="nav-row">
+      <button class="secondary-btn" onclick="go(2)">Back</button>
+      <button class="primary-btn" onclick="go(4)">Month Two 🌷</button>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 5: MONTH TWO -->
+<section class="screen" id="screen4">
+  <div class="container">
+    <div class="chapter-heading">
+      <div class="chapter-number">OUR JOURNEY · PART TWO</div>
+      <div class="month-label">MONTH TWO</div>
+      <h2>Little Things, <span class="highlight">Big Memories</span></h2>
+      <p class="subtitle">Jab normal si baatein apni alag importance rakhne lagti hain.</p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">01 · THE COMFORT</span>
+      <h3>Ek apna sa routine</h3>
+      <p>
+        Doosre month tak aate aate kuch baatein familiar hone
+        lagti hain. Kuch topics jin par baat karna achha lagta hai,
+        kuch jokes jinhein samajhne ke liye zyada explanation
+        ki zaroorat nahi hoti, aur kuch choti si habits jo yaad reh jaati hain.
+      </p>
+      <p>
+        Mujhe lagta hai ke comfort ka matlab yeh nahi hota ke
+        har waqt baat hoti rahe. Comfort ka matlab yeh bhi hai
+        ke dono apni routine aur responsibilities ko samajhte hue
+        ek doosre ke liye space rakhein.
+      </p>
+      <p>
+        Aapke apne kaam, apni studies, apne interests aur apna
+        personal time bhi important hain. Main chahta hoon ke
+        hum ek doosre ki life ko easy banayein, difficult nahi.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">02 · YOUR NAKHRAY</span>
+      <h3>Aapke cute se nakhray</h3>
+      <p>
+        Aur haan, aapke nakhray bhi is journey ka ek interesting
+        hissa hain. Kabhi kisi baat par narazgi, kabhi kisi baat
+        par muh banana, kabhi apni baat manwane ka andaaz.
+      </p>
+      <p>
+        Yeh sab cheezein tabhi achhi lagti hain jab hum ek doosre
+        ki boundaries aur feelings ka khayal rakhein.
+        Narazgi ho toh baat kar ke samajhna chahiye,
+        aur agar kisi ko thoda waqt chahiye toh uski respect bhi honi chahiye.
+      </p>
+      <p>
+        Aapki smile aur aapka khush rehna important hai.
+        Lekin aapko har waqt happy dikhne ki zaroorat nahi.
+        Aap apni feelings honestly express kar sakti hain.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">03 · RANDOM CONVERSATIONS</span>
+      <h3>Woh random si baatein</h3>
+      <p>
+        Kabhi conversation kisi serious topic se shuru hoti hai
+        aur pata nahi kahan pohanch jaati hai. Kabhi koi random
+        question, kabhi koi funny thought, kabhi koi choti si
+        observation.
+      </p>
+      <p>
+        Aisi conversations ka apna maza hota hai.
+        Inmein zaroori nahi hota ke koi special topic ho.
+        Kabhi sirf baat karne ka andaaz hi moment ko special
+        bana deta hai.
+      </p>
+      <p>
+        Main un moments ko appreciate karta hoon jahan hum
+        apni normal si life ki baatein share karte hain.
+        Kyun ke life sirf special occasions ka naam nahi,
+        everyday moments bhi utne hi important hote hain.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">04 · UNDERSTANDING</span>
+      <h3>Ek doosre ko samajhna</h3>
+      <p>
+        Doosre month ki sab se important baat mere liye
+        understanding hai. Har insaan ka apna perspective hota hai.
+        Har baat par agree karna zaroori nahi hota,
+        lekin respectfully sunna zaroori hota hai.
+      </p>
+      <p>
+        Agar kabhi humari opinions different hon,
+        toh main chahta hoon ke hum unhein calmly discuss karein.
+        Kisi ki baat ko samajhne ki koshish karna bhi care ka
+        ek khoobsurat tareeqa hai.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">05 · APPRECIATION</span>
+      <h3>Aapki presence ki qadar</h3>
+      <p>
+        Zahra Jee, main yeh appreciate karta hoon ke aapki
+        apni ek unique personality hai. Aapke apne thoughts,
+        apni preferences aur apna style hai.
+      </p>
+      <p>
+        Main chahta hoon ke aap apni individuality kabhi
+        lose na karein. Aap apne dreams pursue karein,
+        apne liye naye goals set karein aur apni happiness
+        ka bhi khayal rakhein.
+      </p>
+    </div>
+
+    <div class="memory-grid">
+      <div class="memory-card">
+        <div class="emoji">😊</div>
+        <h3>Smiles</h3>
+        <p>Woh moments jo bina kisi badi wajah ke achha feel karwate hain.</p>
+      </div>
+      <div class="memory-card">
+        <div class="emoji">💌</div>
+        <h3>Messages</h3>
+        <p>Choti si conversation jo kabhi kabhi din ka highlight ban jaati hai.</p>
+      </div>
+      <div class="memory-card">
+        <div class="emoji">🌸</div>
+        <h3>Little Habits</h3>
+        <p>Woh choti details jo waqt ke saath yaad rehne lagti hain.</p>
+      </div>
+      <div class="memory-card">
+        <div class="emoji">🤝</div>
+        <h3>Respect</h3>
+        <p>Ek doosre ki baat aur personal space ko importance dena.</p>
+      </div>
+    </div>
+
+    <div class="quote-card">
+      <p>
+        "Khoobsurat memories hamesha grand nahi hoti.
+        Kabhi ek simple conversation bhi kaafi hoti hai."
+      </p>
+    </div>
+
+    <div class="nav-row">
+      <button class="secondary-btn" onclick="go(3)">Back</button>
+      <button class="primary-btn" onclick="go(5)">Month Three 💗</button>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 6: MONTH THREE -->
+<section class="screen" id="screen5">
+  <div class="container">
+    <div class="chapter-heading">
+      <div class="chapter-number">OUR JOURNEY · PART THREE</div>
+      <div class="month-label">MONTH THREE</div>
+      <h2>More Than <span class="highlight">A Calendar</span></h2>
+      <p class="subtitle">Teen mahine ka teesra chapter — appreciation, growth aur umeedein.</p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">01 · LOOKING BACK</span>
+      <h3>Jab peeche mud kar dekhta hoon</h3>
+      <p>
+        Zahra Jee, jab main in teen mahino ko ek saath dekhta hoon
+        toh mujhe ehsaas hota hai ke waqt kitni jaldi guzar jata hai.
+        Kuch din busy hote hain, kuch din normal,
+        aur kuch din aise hote hain jinhein yaad karna achha lagta hai.
+      </p>
+      <p>
+        Main har moment ko perfect kehne ki koshish nahi karunga.
+        Har connection mein different days aate hain.
+        Kabhi mood achha hota hai, kabhi thakan hoti hai,
+        kabhi responsibilities zyada hoti hain.
+      </p>
+      <p>
+        Lekin mere liye important yeh hai ke hum achhe moments
+        ki qadar karein aur difficult moments mein bhi respect
+        aur understanding ko na bhoolen.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">02 · WHAT YOU MEAN</span>
+      <h3>Aapki apni importance hai</h3>
+      <p>
+        Aap mere liye ek aisi person hain jinki baat,
+        opinions aur feelings ko main importance dena chahta hoon.
+        Aapki khushi important hai, lekin aapki comfort
+        aur aapki personal choices bhi utni hi important hain.
+      </p>
+      <p>
+        Main nahi chahta ke aap kabhi kisi pressure mein
+        apni feelings express karein. Aap jo feel karti hain,
+        woh aapka apna experience hai aur uski respect honi chahiye.
+      </p>
+      <p>
+        Kisi bhi relationship ki khoobsurati tab hoti hai
+        jab dono log apni marzi se, honesty ke saath,
+        ek doosre ko choose karein.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">03 · YOUR DREAMS</span>
+      <h3>Aapke dreams bhi important hain</h3>
+      <p>
+        Zahra Jee, main chahta hoon ke aap apni life mein
+        bohat aage barhein. Aap jo bhi achieve karna chahti hain,
+        uske liye mehnat karein aur apne goals ko importance dein.
+      </p>
+      <p>
+        Aapki identity sirf kisi ki partner hone tak limited nahi.
+        Aap apni alag personality, apne dreams aur apni
+        achievements rakhti hain.
+      </p>
+      <p>
+        Main aapko hamesha encourage karna chahta hoon
+        ke aap apne liye bhi waqt nikalein,
+        apni skills improve karein aur apni khushiyon ko
+        kabhi chota na samjhein.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">04 · THE LITTLE PROMISE</span>
+      <h3>Ek choti si promise</h3>
+      <p>
+        Main yeh promise nahi karunga ke har din perfect hoga.
+        Main yeh bhi nahi kahunga ke kabhi disagreement nahi hoga.
+        Lekin main yeh keh sakta hoon ke communication,
+        honesty aur respect ko important rakhna chahta hoon.
+      </p>
+      <p>
+        Agar kabhi koi baat buri lage toh usay chupane ke bajaye
+        calmly discuss karna behtar hoga.
+        Agar kisi ko space chahiye toh uski respect honi chahiye.
+        Aur agar koi khushi ho toh usay mil kar celebrate karna chahiye.
+      </p>
+    </div>
+
+    <div class="story-card">
+      <span class="card-tag">05 · THANK YOU</span>
+      <h3>Thank you, Zahra Jee</h3>
+      <p>
+        Thank you un conversations ke liye.
+        Thank you un smiles ke liye.
+        Thank you un choti choti memories ke liye
+        jo shayad aapke liye normal hon,
+        lekin mere liye unki apni value hai.
+      </p>
+      <p>
+        Thank you apni personality ke saath hone ke liye.
+        Thank you apni baat share karne ke liye.
+        Aur thank you un moments ke liye
+        jinhein main aaj is website mein words ki form mein
+        collect karne ki koshish kar raha hoon.
+      </p>
+    </div>
+
+    <div class="quote-card">
+      <p>
+        "Teen mahine guzar gaye,
+        lekin appreciation kehne ke liye
+        ek din bhi kam nahi hota."
+      </p>
+    </div>
+
+    <div class="nav-row">
+      <button class="secondary-btn" onclick="go(4)">Back</button>
+      <button class="primary-btn" onclick="go(6)">A Few More Things 🌷</button>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 7: COMPLIMENTS -->
+<section class="screen" id="screen6">
+  <div class="container">
+    <div class="chapter-heading">
+      <div class="chapter-number">CHAPTER 03 · A FEW WORDS</div>
+      <h2>Things I <span class="highlight">Appreciate</span></h2>
+      <p class="subtitle">Kuch compliments jo main aapko kehna chahta hoon.</p>
+    </div>
+
+    <div class="compliment">
+      <span>🌷</span>
+      <div>
+        **Your Personality**
+        Aapka apna ek unique andaaz hai. Aapki individuality
+        aur apni baat rakhne ka tareeqa aapko alag banata hai.
+      </div>
+    </div>
+
+    <div class="compliment">
+      <span>✨</span>
+      <div>
+        **Your Smile**
+        Aapki smile ki tareef karna toh banta hai.
+        Khushi ke moments ko aur bhi khoobsurat bana deti hai.
+      </div>
+    </div>
+
+    <div class="compliment">
+      <span>🤍</span>
+      <div>
+        **Your Thoughts**
+        Aapki apni soch hai aur apna perspective.
+        Mujhe achha lagta hai jab aap apni opinions share karti hain.
+      </div>
+    </div>
+
+    <div class="compliment">
+      <span>🦋</span>
+      <div>
+        **Your Little Habits**
+        Aapki choti choti habits aur expressions
+        aapki personality ka pyara sa hissa hain.
+      </div>
+    </div>
+
+    <div class="compliment">
+      <span>🌸</span>
+      <div>
+        **Your Dreams**
+        Aapke goals aur ambitions important hain.
+        Main chahta hoon aap unhein confidence ke saath pursue karein.
+      </div>
+    </div>
+
+    <div class="compliment">
+      <span>💗</span>
+      <div>
+        **Your Presence**
+        Aapki baat aur aapka waqt mere liye meaningful hai.
+        Main iski qadar karta hoon.
+      </div>
+    </div>
+
+    <div class="compliment">
+      <span>🌙</span>
+      <div>
+        **Your Honesty**
+        Sachai aur clear communication kisi bhi connection
+        ko behtar banane mein madad karte hain.
+      </div>
+    </div>
+
+    <div class="compliment">
+      <span>🧸</span>
+      <div>
+        **Your Cute Nakhray**
+        Aapke cute se nakhray bhi aapki personality ka
+        ek interesting hissa hain.
+      </div>
+    </div>
+
+    <div class="compliment">
+      <span>💐</span>
+      <div>
+        **Simply You**
+        Aapko kisi aur jaisa banne ki zaroorat nahi.
+        Aap apni jagah apni personality ke saath special hain.
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="secondary-btn" onclick="go(5)">Back</button>
+      <button class="primary-btn" onclick="go(7)">Read My Letter 💌</button>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 8: LETTER -->
+<section class="screen" id="screen7">
+  <div class="container">
+    <div class="chapter-heading">
+      <div class="chapter-number">CHAPTER 04 · A LETTER FOR YOU</div>
+      <h2>From My <span class="highlight">Heart</span></h2>
+      <p class="subtitle">Kuch baatein jo main aapse kehna chahta hoon.</p>
+    </div>
+
+    <div class="letter-paper">
+      <div class="letter-text" id="letterText"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="secondary-btn" onclick="go(6)">Back</button>
+      <button class="primary-btn" onclick="go(8)">One Last Question ❤️</button>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 9: FINAL PROPOSAL -->
+<section class="screen" id="screen8">
+  <div class="container">
+    <div class="proposal-card">
+      <span class="big-heart">💗</span>
+      <div class="eyebrow">THE LAST PAGE · THE MOST IMPORTANT QUESTION</div>
+      <h2>Zahra Jee,</h2>
+      <p class="subtitle">
+        13 August ko maine aapse ek sawal poocha tha.
+        Aaj teen mahine ki memories aur appreciation ke baad
+        main aapse phir ek baat poochna chahta hoon.
+      </p>
+
+      <div class="divider"></div>
+
+      <h2 class="highlight">Will you choose this journey with me again?</h2>
+
+      <p class="subtitle">
+        Koi pressure nahi, koi jaldi nahi.
+        Aapka jawab aapki apni feelings ke mutabiq hona chahiye.
+        Aap jo bhi choose karein, main uski respect karunga.
+      </p>
+
+      <div class="proposal-buttons">
+        <button class="yes-btn" onclick="sayYes()">YES 💗</button>
+        <button class="no-btn" onclick="sayNo()">NO</button>
+      </div>
+
+      <p class="footer-note">MADE WITH CARE · FOR ZAHRA JEE</p>
+    </div>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<div id="celebration">
+  <div class="celebration-inner">
+    <span style="font-size:65px">💗</span>
+    <h2>Thank You, Zahra Jee!</h2>
+    <p>
+      Aapka jawab mere liye important hai.
+      Main chahta hoon ke hum hamesha honesty,
+      respect aur understanding ke saath apni journey ko
+      aage barhayein.
+    </p>
+    <div class="divider"></div>
+    <p style="font-family:'Playfair Display',serif;font-size:22px">
+      You are appreciated. Always. 🌷
+    </p>
+    <br>
+    <button class="primary-btn" onclick="closeCelebration()">Close</button>
+  </div>
+</div>
+
+<script>
+const TOTAL_SCREENS = 9;
+let currentScreen = 0;
+let letterStarted = false;
+let toastTimer;
+let player;
+let musicReady = false;
+let musicPlaying = false;
+
+const letter = `Zahra Jee,
+
+Pata hai, kabhi kabhi main sochta hoon ke kisi insaan ko dobara choose karne ka matlab kya hota hai?
+
+Mere khayal mein iska matlab sirf ek sawal dobara poochna nahi hota. Iska matlab hota hai ke hum guzare hue waqt ko appreciate karein, achhi memories ko yaad rakhein, apni mistakes se seekhein aur ek doosre ko samajhne ki koshish karein.
+
+13 August ko jab maine pehli baar aapse apni feelings share ki thi, woh din mere liye special tha. Aaj teen mahine guzarnay ke baad main un choti choti baaton ki qadar karna chahta hoon jo humne is duration mein share ki hain.
+
+Mujhe aapki personality achhi lagti hai. Aapka apna andaaz, aapki soch, aapki smile, aapke cute se nakhray aur woh choti choti baatein jo aapko aap banati hain.
+
+Main yeh nahi kahunga ke har din perfect hoga. Life mein busy days bhi aate hain, misunderstandings bhi ho sakti hain aur kabhi opinions different bhi ho sakte hain. Lekin meri wish hai ke hum har situation mein respect aur communication ko importance dein.
+
+Main chahta hoon ke aap apne dreams poore karein, apni life mein aage barhein aur hamesha khush rahein. Aapki apni identity aur aapki personal happiness bohat important hai.
+
+Thank you un teen mahino ke liye. Thank you conversations ke liye, smiles ke liye, random baaton ke liye aur un memories ke liye jo shayad choti hon lekin mere liye meaningful hain.
+
+Aur ab ek baar phir...
+
+Main aapse poochna chahta hoon:
+
+Kya aap mere saath is journey ko dobara choose karna chahein gi?
+
+Aapka jawab jo bhi ho, main uski respect karunga.
+
+With lots of appreciation,
+For Zahra Jee. ❤️`;
+
+function go(number) {
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+
+  currentScreen = number;
+
+  document.getElementById("screen" + number)
+    .classList.add("active");
+
+  const progress = ((number + 1) / TOTAL_SCREENS) * 100;
+
+  document.getElementById("progressBar")
+    .style.width = progress + "%";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  if(number === 7 && !letterStarted) {
+    typeLetter();
+  }
+}
+
+function typeLetter() {
+  letterStarted = true;
+
+  const target = document.getElementById("letterText");
+  let index = 0;
+
+  target.textContent = "";
+
+  const interval = setInterval(() => {
+    target.textContent += letter.charAt(index);
+    index++;
+
+    if(index >= letter.length) {
+      clearInterval(interval);
+    }
+  },18);
+}
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  },3500);
+}
+
+function sayNo() {
+  showToast(
+    "Nah nah Zahra babbie! Itni mehnat sirf is liye nahi ki ke aap NO par click karein hehe ❤️"
+  );
+}
+
+function sayYes() {
+  document.getElementById("celebration")
+    .classList.add("show");
+
+  for(let i = 0; i < 35; i++) {
+    setTimeout(createHeart,i * 80);
+  }
+}
+
+function closeCelebration() {
+  document.getElementById("celebration")
+    .classList.remove("show");
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+
+  heart.className = "floating-heart";
+
+  const hearts = ["💗","💕","💖","🤍","🌸","✨"];
+
+  heart.textContent =
+    hearts[Math.floor(Math.random() * hearts.length)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 22) + "px";
+  heart.style.animationDuration = (5 + Math.random() * 6) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(),11000);
+}
+
+setInterval(() => {
+  if(Math.random() > .45) {
+    createHeart();
+  }
+},1200);
+
+/* YOUTUBE MUSIC */
+
+function loadYouTubeAPI() {
+  if(window.YT && window.YT.Player) {
+    createPlayer();
+    return;
+  }
+
+  if(document.getElementById("youtubeAPI")) {
+    return;
+  }
+
+  const tag = document.createElement("script");
+  tag.id = "youtubeAPI";
+  tag.src = "https://www.youtube.com/iframe_api";
+
+  document.body.appendChild(tag);
+}
+
+window.onYouTubeIframeAPIReady = function() {
+  createPlayer();
+};
+
+function createPlayer() {
+  if(player) return;
+
+  player = new YT.Player("musicPlayer", {
+    height:"1",
+    width:"1",
+    videoId:"uwXHMrfRczY",
+
+    playerVars:{
+      autoplay:1,
+      controls:1,
+      loop:1,
+      playlist:"uwXHMrfRczY",
+      playsinline:1,
+      rel:0
+    },
+
+    events:{
+      onReady:function(event) {
+        musicReady = true;
+        event.target.setVolume(55);
+        event.target.mute();
+        event.target.playVideo();
+
+        document.getElementById("musicText").textContent =
+          "UNMUTE MUSIC";
+      },
+
+      onStateChange:function(event) {
+        if(event.data === YT.PlayerState.PLAYING) {
+          musicPlaying = true;
+        }
+
+        if(event.data === YT.PlayerState.ENDED) {
+          player.playVideo();
+        }
+      }
+    }
+  });
+}
+
+function toggleMusic() {
+  if(!musicReady || !player) {
+    loadYouTubeAPI();
+
+    showToast("Music load ho raha hai. Thori dair baad dobara press karein 🎵");
+    return;
+  }
+
+  if(player.isMuted()) {
+    player.unMute();
+    player.setVolume(55);
+    player.playVideo();
+
+    musicPlaying = true;
+
+    document.getElementById("musicIcon").textContent = "♫";
+    document.getElementById("musicText").textContent = "PAUSE MUSIC";
+  } else {
+    player.mute();
+
+    document.getElementById("musicIcon").textContent = "♪";
+    document.getElementById("musicText").textContent = "PLAY MUSIC";
+  }
+}
+
+window.addEventListener("load",() => {
+  loadYouTubeAPI();
+  document.getElementById("progressBar").style.width =
+    (100 / TOTAL_SCREENS) + "%";
+});
+</script>
+
+</body>
+</html>
